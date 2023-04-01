@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7eb93068_002D6f83_002D4812_002D8562_002D1735c5614bdf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MultipliesVectorByMatrix" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::00BB8E14-135A-46F5-8BD2-DDAADD40DA15::net6.0::ApiTests.FeedForwardTests.EvaluatesTwoLayerNetwork_Single&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::00BB8E14-135A-46F5-8BD2-DDAADD40DA15::net6.0::ApiTests.FeedForwardTests.EvaluatesThreeLayerNetwork_Single&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::00BB8E14-135A-46F5-8BD2-DDAADD40DA15::net6.0::ApiTests.FeedForwardTests.EvaluatesBatchThreeLayerNetwork_Single&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::00BB8E14-135A-46F5-8BD2-DDAADD40DA15::net6.0::ApiTests.FeedForwardTests.NetworkLearnsToRevertInputs&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
