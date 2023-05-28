@@ -67,29 +67,48 @@ public class FeedForwardTests
     [Test]
     public void NetworkLearnsToRevertInputs()
     {
-        var nn = new FeedForward(new double[][,]
-        {
-            new double[,]
-            {
-                { 1, 1 },
-                { -1, +1 }
-            }
-        });
+        var nn = new FeedForward(new[] { 6, 12, 1 });
 
-        var inputs = new double[200][];
-        var outputs = new double[200][];
-        for (var i = 0; i < inputs.Length; i++)
+        const int B = 1 << 6;
+        var inputs = new double[B*B][];
+        var outputs = new double[B*B][];
+        for (var i = 0; i < B; i++)
         {
-            inputs[i] = new[] { i / 200d, (200 - i) / 200d };
-            outputs[i] = new[] { (200 - i) / 200d, i / 200d };
+            for (var k = 0; k < B; k++)
+            {
+                inputs[i * B + k] = new double[12];
+                for (var j = 0; j < 6; j++)
+                {
+                    inputs[i][j] = (i >> j) % 2;
+                }
+                for (var j = 0; j < 6; j++)
+                {
+                    inputs[i][j + 6] = (k >> j) % 2;
+                }
+                
+                outputs[i * B + k] = new double[6];
+                var sum = i + k;
+                for (var j = 0; j < 6; j++)
+                {
+                    outputs[i * B + k][j] = (sum >> j) % 2;
+                }
+            }
         }
+        const int maxIter = 100000;
         var error = 1d;
-        for (var i = 0; i < 10000 && error > 0.05d; i++)
+        for (var i = 0; i < maxIter && error > 0.05d; i++)
         {
-            error = nn.LearnOn(inputs, outputs, 0.01);
-            if (i % 100 == 0)
+            error = nn.LearnOn(inputs, outputs, 0.1);
+            if (i % (maxIter / 100) == 0)
+            {
                 Console.WriteLine($"Step {i}. Error is {error}");
+                Console.Out.Flush();
+            }
         }
         Console.WriteLine(string.Join("\n", nn.Weights.Stringify()[0]));
+        if (nn.Weights.Length > 1)
+            Console.WriteLine(string.Join("\n", nn.Weights.Stringify()[1]));
+        if (nn.Weights.Length > 2)
+            Console.WriteLine(string.Join("\n", nn.Weights.Stringify()[2]));
     }
 }

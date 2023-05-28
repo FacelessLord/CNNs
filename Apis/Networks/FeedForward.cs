@@ -109,7 +109,7 @@ public class FeedForward : INeuralNetwork
                                 dLdW[a][m][i][j][k] = 0d;
                                 for (var b = 0; b < LayerConfig[a - 1]; b++)
                                 {
-                                    dLdW[a][m][i][j][k] += sigmaNets[a][m] * Weights[a][b, m] * dLdW[a - 1][b][i][j][k];
+                                    dLdW[a][m][i][j][k] += sigmaNets[a][m] * Weights[a-1][b, m] * dLdW[a - 1][b][i][j][k];
                                 }
                             }
                         }
