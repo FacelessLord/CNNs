@@ -1,4 +1,7 @@
-﻿namespace Apis.Networks;
+﻿using Cloo.Bindings;
+using SilverHorn.Cloo.Factories;
+
+namespace Apis.Networks;
 
 public class FeedForward : INeuralNetwork
 {
